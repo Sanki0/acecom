@@ -37,5 +37,3 @@ def shit():
     #return im
     return im_copy
 
-
-print(shit())

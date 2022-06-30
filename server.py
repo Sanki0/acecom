@@ -58,7 +58,7 @@ def main():
         image = request.form['image']
         image_variable= serve_pil_image()
     else:
-        serve_pil_image
+        serve_pil_image()
 
 
     return render_template('index.html')
