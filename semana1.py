@@ -20,8 +20,8 @@ from PIL import Image
 from scipy.signal import convolve2d
 
 
-def shit():
-    im = imread('./descarga.png')
+def shit(filename):
+    im = imread('./static/uploads/{}'.format(filename))
     im_arr = np.asarray(im)
 
 
@@ -30,10 +30,12 @@ def shit():
     kernel = np.array([[-1, -1, -1], [2, 2, 2], [-1, -1, -1]]).T
     pic_out = convolve2d(im_copy, kernel, mode='same')
 
-    #im= Image.fromarray(np.abs(pic_out))
+    im= Image.fromarray(np.abs(pic_out))
 
-    im_copy=Image.fromarray(np.abs(im_copy))
+    # im_copy=Image.fromarray(np.abs(im_copy))
 
-    #return im
-    return im_copy
+    #return im.show()
+    return im
+    # return im_copy
 
+#shit('descarga.png')

@@ -9,27 +9,43 @@
   <title>Document</title>
 </head>
 
+
 <body>
-  <form action="http://localhost:5000/" method="post">
+
+  <div class="container">
+    <div class="row">
 
 
-    <p>Enter Picture:</p>
+      <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+          <p>
+            <input type="file" name="file" class="form-control" autocomplete="off" required>
+          </p>
+        </dl>
+        <p>
+          <input type="submit" value="Submit" class="btn btn-info">
+        </p>
+      </form>
 
 
+      {% if filename %}
+      <div>
+        <img src="{{ url_for('display_image', filename=filename) }}">
+        <div>{{filename}}</div>
+      </div>
+      {% endif %}
+
+      {% if filename %}
+      <div>
+        <img src="{{ url_for('serve_pil_image', filename=filename) }}">
+      </div>
+      {% endif %}
 
 
-    <input type="file" id="imageInput" name="image" accept="image/png, image/jpg" />
-
-    <div id="displayImage"></div>
-
-    <button type="submit" value="submit">Submit</button>
-
-    <div> 
-      <image src="{{url_for('serve_pil_image')}}" >
     </div>
-
-    <script src="../static/script.js"></script>
-  </form>
+  </div>
 </body>
+
+<script src="../static/script.js"></script>
 
 </html>
